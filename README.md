@@ -64,7 +64,7 @@ If you have any questions or suggestions, please feel free to contact us at sarw
 <b>Deploy</b>: to deployee you need to do the following:<br />
 <ul>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges:<br />
-<b><code><packaging>war</packaging></b><br />
+<b><packaging>war</packaging></b><br />
 <p><dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -88,6 +88,7 @@ If you have any questions or suggestions, please feel free to contact us at sarw
     </build>
 </li>
 <li>Update your Main application Class DemoApplication.java:
+            <code>
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
