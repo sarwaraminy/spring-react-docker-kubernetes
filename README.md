@@ -63,52 +63,8 @@ If you have any questions or suggestions, please feel free to contact us at sarw
 
 <b>Deploy</b>: to deployee you need to do the following:<br />
 <ul>
-<li>Update pom.xml and add the tomcat dependency and update build pacakges:<br />
-<b><code><packaging>war</packaging></b><br />
-<p><dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        </dependencies>
-        <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-</li>
-<li>Update your Main application Class DemoApplication.java:
-package com.example.demo;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-
-@SpringBootApplication
-public class DemoApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(DemoApplication.class);
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
-}
-</code>
-</li>
+<li>Update pom.xml and add the tomcat dependency and update build pacakges</li>
+<li>Update your Main application Class DemoApplication.java</li>
 <li>run this command in your project: mvn clean package
 <li>After running this command, you should find the demo-0.0.1-SNAPSHOT.war file in the target directory.</li>
 </ul>
