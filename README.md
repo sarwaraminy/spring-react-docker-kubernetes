@@ -64,7 +64,7 @@ If you have any questions or suggestions, please feel free to contact us at sarw
 <b>Deploy</b>: to deployee you need to do the following:<br />
 <ul>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges:<br />
-<b><packaging>war</packaging></b><br />
+<b><code><packaging>war</packaging></b><br />
 <p><dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -107,7 +107,7 @@ public class DemoApplication extends SpringBootServletInitializer {
         SpringApplication.run(DemoApplication.class, args);
     }
 }
-
+</code>
 </li>
 <li>run this command in your project: mvn clean package
 <li>After running this command, you should find the demo-0.0.1-SNAPSHOT.war file in the target directory.</li>
