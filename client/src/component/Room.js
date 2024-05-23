@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddRoom from './Add_Room';
 import SearchRooms from './SearchRoom';
+import { LogoutButton } from '../auth/LogoutButton';
 
 const apiServer = process.env.REACT_APP_API_SERVER;
 console.log(apiServer);
@@ -109,6 +110,7 @@ const RoomData = () => {
 
     return (
         <>
+            <LogoutButton />
             <AddRoom fetchRoom={fetchRoom} />
 
             <div className="container">

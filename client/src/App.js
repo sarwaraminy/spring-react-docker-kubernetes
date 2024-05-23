@@ -1,18 +1,24 @@
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavLink from "./component/NavLink";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RoomData from "./component/Room";
-import './App.css'
+import { PrivateRoute } from "./auth/PrivateRoute";
+import './App.css';
+import { LoginPage } from "./component/LoginPage";
+import { SignUpPage } from "./component/SignUp";
 
 function App() {
   return (
-    
-    <BrowserRouter>
-      <NavLink />
+    <Router>
+      
       <Routes>
-        <Route path="/rooms/api" element={<RoomData />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/rooms" element={<PrivateRoute />}>
+          <Route path="api" element={<RoomData />} />
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
