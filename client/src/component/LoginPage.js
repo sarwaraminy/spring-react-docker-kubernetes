@@ -25,6 +25,7 @@ export const LoginPage = () => {
                 const data = await response.json();
                 // Handle successful login (e.g, save token, navigate to dashboard)
                 localStorage.setItem('authToken', data.token);
+                localStorage.setItem('userEmail', emailValue);
                 navigate('/rooms/api');
             } else {
                 // Handle error response
