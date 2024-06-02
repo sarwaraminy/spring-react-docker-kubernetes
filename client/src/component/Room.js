@@ -29,7 +29,7 @@ const RoomData = () => {
 
     const fetchRoom = async () => {
         try {
-            const response = await axios.get(`${apiServer}/rooms/api`);
+            const response = await axios.get(`${apiServer}/rooms/api/getAll`);
             setRoomList(response.data);
             setFilteredRoomList(response.data); // Set filtered list initially
         } catch (error) {

@@ -1,13 +1,14 @@
 package com.example.demo.controller;
 
-import java.io.Console;
+
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,14 +26,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.FrontEndServer;
-import com.example.demo.data.LoginRequest;
 import com.example.demo.data.Room;
-import com.example.demo.data.Users;
 import com.example.demo.output.ExcelToRoomUtility;
 import com.example.demo.output.RoomToExcel;
 import com.example.demo.output.RoomToPDF;
 import com.example.demo.services.RoomService;
-import com.example.demo.services.UsersService;
 
 @RestController
 @RequestMapping(path="/rooms/api")
@@ -45,10 +43,20 @@ public class RoomControllerRESTAPI {
 
 	@Autowired private RoomToPDF roomToPDF;
 
-	@Autowired private UsersService userService;
+	// Map all requests except those starting with "/room" to this method
+    @GetMapping(value = {"", "/", "/{path:^(?!room).*$}"})
+    public ResponseEntity serveIndexHtml() throws IOException {
+        Resource indexHtml = new ClassPathResource("static/build/index.html");
+        // Check if the resource exists
+        if (indexHtml.exists()) {
+            return ResponseEntity.ok().body(indexHtml.getInputStream().readAllBytes());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 	//this method sends data as JSON When /rooms is called in URL
-	@GetMapping
+	@GetMapping("/getAll")
 	public ResponseEntity<List<Room>> getAllRooms(){
 		List<Room> rooms = roomService.getAllRooms();
 		return ResponseEntity.ok(rooms);
@@ -160,31 +168,5 @@ public class RoomControllerRESTAPI {
 	    headers.setContentDispositionFormData("attachment", "room_data.pdf");
 	    return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
 	}
-
-	//this method sends data as JSON When /rooms is called in URL
-	@GetMapping("/users")
-	public ResponseEntity<List<Users>> getAllUsers(){
-		List<Users> users = userService.getAllUsers();
-		return ResponseEntity.ok(users);
-	}
-
-	@PostMapping("/signup")
-    public ResponseEntity<Users> registerUser(@RequestBody Users user){
-		Users registerUser = userService.saveUser(user);
-		return ResponseEntity.status(HttpStatus.CREATED).body(registerUser);
-	}
-
-	// login
-	@PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
-        Optional<Users> userOptional = userService.authenticateUser(loginRequest.getEmail(), loginRequest.getPassword());
-        if (userOptional.isPresent()) {
-            // Create a response that includes a token or some session information
-            // For simplicity, let's just return the user object
-            return ResponseEntity.ok(userOptional.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
-        }
-    }
 		
 }

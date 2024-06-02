@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavLink from "./component/NavLink";
 import RoomData from "./component/Room";
 import { PrivateRoute } from "./auth/PrivateRoute";
 import './App.css';
@@ -12,11 +11,11 @@ function App() {
       
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/rooms" element={<PrivateRoute />}>
           <Route path="api" element={<RoomData />} />
         </Route>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
       </Routes>
     </Router>
   );

@@ -9,7 +9,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        // Forward all routes to index.html
-        registry.addViewController("/{spring:[^.]*}").setViewName("forward:/index.html");
+        // Forward requests to the main application entry point
+        registry.addViewController("/").setViewName("forward:/build/index.html");
+        registry.addViewController("/{x:[\\w\\-]+}").setViewName("forward:/build/index.html");
+        registry.addViewController("/{x:^(?!api$|swagger-ui.*$).*$}/**/{y:[\\w\\-]+}").setViewName("forward:/build/index.html");
     }
 }

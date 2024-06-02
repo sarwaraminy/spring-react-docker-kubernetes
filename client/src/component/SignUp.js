@@ -31,7 +31,7 @@ export const SignUpPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${apiServer}/rooms/api/signup`, formData);
+            const response = await axios.post(`${apiServer}/auth/signup`, formData);
             setSuccessMessage(`<font color="green">User added Successfully: ${response.data.email}</font>`);
             setFormData({ email: '', passwordHash: '', firstName: '', lastName: '' });
         } catch (error) {

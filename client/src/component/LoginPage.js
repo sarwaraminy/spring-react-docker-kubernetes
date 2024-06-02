@@ -13,7 +13,7 @@ export const LoginPage = () => {
         setErrorMessage(''); 
 
         try{
-            const response = await fetch(`${process.env.REACT_APP_API_SERVER}/rooms/api/login`, {
+            const response = await fetch(`${process.env.REACT_APP_API_SERVER}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
