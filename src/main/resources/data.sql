@@ -245,3 +245,17 @@ SELECT @adminRoleId := id FROM roles WHERE name = 'ADMIN';
 
 -- Associate the admin user with the 'ADMIN' role
 INSERT INTO users_roles (user_id, role_id) VALUES (@adminUserId, @adminRoleId);
+
+
+-- Insert an initial admin user
+INSERT INTO users (email, password_hash, first_name, last_name) 
+VALUES ('user@example.com', '$2a$10$fEuOnbLXowGfkTVlGvNKyOLwIcDGEhbo3QGbb6N8uWepaq7SWO1SS', 'User', 'User');
+
+-- Get the ID of the inserted admin user
+SET @adminUserId = LAST_INSERT_ID();
+
+-- Get the ID of the 'ADMIN' role
+SELECT @adminRoleId := id FROM roles WHERE name = 'USER';
+
+-- Associate the admin user with the 'ADMIN' role
+INSERT INTO users_roles (user_id, role_id) VALUES (@adminUserId, @adminRoleId);

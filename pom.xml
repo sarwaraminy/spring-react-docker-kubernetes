@@ -106,6 +106,12 @@
 	<artifactId>spring-boot-starter-security</artifactId>
    </dependency>-->
 
+ 
+   <dependency>
+     <groupId>uk.co.vurt.hakken</groupId>
+     <artifactId>hakken-security</artifactId>
+     <version>1.0.0</version>
+   </dependency>
  </dependencies>
 
 	<build>

@@ -2,6 +2,9 @@ package com.example.demo.data;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -23,13 +26,14 @@ public class Role {
     @Column(unique=true, nullable=false)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore // Ignore users during serialization
+    @ManyToMany(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
     @JoinTable(
         name = "users_roles",
         joinColumns = @JoinColumn(name = "role_id"),
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private Set<Users> users;
+    private Set<User> users;
 
 
     public Long getId() {
@@ -48,11 +52,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<Users> getUsers() {
+    public Set<User> getUsers() {
         return this.users;
     }
 
-    public void setUsers(Set<Users> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 

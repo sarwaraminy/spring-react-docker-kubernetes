@@ -3,12 +3,12 @@ package com.example.demo.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.data.Users;
+import com.example.demo.data.User;
 
 public interface UsersService {
-    List<Users> getAllUsers();
-	Users getUserById(long id);
-	Users saveUser(Users user);
+    List<User> getAllUsers();
+	User getUserById(long id);
+	User saveUser(User user);
 	void deleteUser(long id);
-    Optional<Users> authenticateUser(String email, String password);
+    Optional<User> authenticateUser(String email, String password);
 }

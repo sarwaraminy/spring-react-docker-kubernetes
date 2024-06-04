@@ -26,6 +26,8 @@ export const LoginPage = () => {
                 // Handle successful login (e.g, save token, navigate to dashboard)
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('userEmail', emailValue);
+                localStorage.setItem('userRole', JSON.stringify(data.roles));
+                console.log(data);
                 navigate('/rooms/api');
             } else {
                 // Handle error response

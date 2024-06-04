@@ -4,6 +4,7 @@ import AddRoom from './Add_Room';
 import SearchRooms from './SearchRoom';
 import { LogoutButton } from '../auth/LogoutButton';
 import { useUserEmail } from '../auth/useUserEmail';
+import { useUserRole } from '../auth/useUserRole';
 
 const apiServer = process.env.REACT_APP_API_SERVER;
 console.log(apiServer);
@@ -22,6 +23,9 @@ const RoomData = () => {
     const [messages, setMessages] = useState('');
 
     const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
+
+    const userRoles = useUserRole();
+    const isUserRoleUser = userRoles.includes('USER');
 
     useEffect(() => {
         fetchRoom();
@@ -151,9 +155,19 @@ const RoomData = () => {
                                         </>
                                     ) : (
                                         <>
-                                            <td className='editRoomBtn' title="Click here to update/delete this record" onClick={() => handleEditClick(room)}>{room.name}</td>
+                                            <td 
+                                              className={isUserRoleUser ? '' : 'editRoomBtn'} 
+                                              title={isUserRoleUser ? 'Your Role is User and you can\'t edit this row' : "Click here to update/delete this record"} 
+                                              onClick={isUserRoleUser ? null : () => handleEditClick(room)}>
+                                                {room.name}
+                                            </td>
                                             <td>{room.roomNumber}</td>
-                                            <td className='editRoomBtn' title="Click here to update/delete this record" onClick={() => handleEditClick(room)}>{room.bedInfo}</td>
+                                            <td
+                                              className={isUserRoleUser ? '' : 'editRoomBtn'} 
+                                              title={isUserRoleUser ? 'Your Role is User and you can\'t edit this row' : "Click here to update/delete this record"} 
+                                              onClick={isUserRoleUser ? null : () => handleEditClick(room)}>
+                                                {room.bedInfo}
+                                            </td>
                                             <td></td>
                                         </>
                                     )}
