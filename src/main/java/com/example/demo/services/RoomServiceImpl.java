@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.data.Room;
-import com.example.demo.data.RoomRepository;
 import com.example.demo.output.ExcelToRoomUtility;
+import com.example.demo.repo.RoomRepository;
 
 @Service
 public class RoomServiceImpl implements RoomService {

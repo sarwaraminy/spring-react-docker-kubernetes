@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -49,15 +48,12 @@ public class UserController {
 
         Optional<Role> role = roleService.findByName(signupRequest.getRole()); // Assuming this method exists
         if (role.isPresent()) {
-            Set<Role> roles = new HashSet<>();
-            roles.add(role.get());
-            user.setRole(roles);
+            Long roleId = role.get().getId();
+            User registeredUser = userService.saveUser(user, roleId);
+            return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null); // Invalid role name
         }
-
-        User registeredUser = userService.saveUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(registeredUser);
     }
 
     @PostMapping("/login")

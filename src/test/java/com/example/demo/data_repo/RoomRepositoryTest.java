@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.data.Room;
-import com.example.demo.data.RoomRepository;
+import com.example.demo.repo.RoomRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

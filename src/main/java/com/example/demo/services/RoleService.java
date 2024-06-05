@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.data.Role;
-import com.example.demo.data.RoleRepository;
+import com.example.demo.repo.RoleRepository;
 
 @Service
 public class RoleService {

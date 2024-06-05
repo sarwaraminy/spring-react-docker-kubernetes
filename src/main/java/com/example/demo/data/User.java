@@ -1,6 +1,7 @@
 package com.example.demo.data;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -13,7 +14,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name="users")
 public class User {
 
     @Id
@@ -36,8 +37,8 @@ public class User {
     @Column(nullable=false)
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "users")
-    private Set<Role> role;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "users")
+    private Set<Role> role = new HashSet<>(); // Initialize the role field ;
 
     public Long getId() {
         return this.id;

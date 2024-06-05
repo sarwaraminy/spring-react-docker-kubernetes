@@ -7,9 +7,10 @@ export const SignUpPage = () => {
 
     const [formData, setFormData] = useState({
         email: '',
-        passwordHash: '',
+        password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        role: 'USER' // Set default role value
     });
 
     const handleFormChange = (e) => {
@@ -26,6 +27,13 @@ export const SignUpPage = () => {
     const [successMessage, setSuccessMessage] = useState('');
 
     const navigate = useNavigate();
+    
+    const handleRoleChange = (event) => {
+        setFormData({
+            ...formData,
+            role: event.target.value
+        });
+    };
 
     const registerUser = async (e) => {
         e.preventDefault();
@@ -33,7 +41,9 @@ export const SignUpPage = () => {
         try {
             const response = await axios.post(`${apiServer}/auth/signup`, formData);
             setSuccessMessage(`<font color="green">User added Successfully: ${response.data.email}</font>`);
-            setFormData({ email: '', passwordHash: '', firstName: '', lastName: '' });
+            setFormData({ email: '', password: '', firstName: '', lastName: '', role: 'USER' });
+            setConfirmPasswordValue('');
+            navigate("/login");
         } catch (error) {
             setErrorMessage(`<font color="red">Error adding User: ${error.response.data.message || error.message}</font>`);
         }
@@ -48,7 +58,7 @@ export const SignUpPage = () => {
                             <h3>Sign Up Page</h3>
                         </div>
                         {errorMessage && <div className="alert alert-danger" dangerouslySetInnerHTML={{ __html: errorMessage }}></div>}
-                        <div className="col-md-8" dangerouslySetInnerHTML={{ __html: successMessage }}></div>
+                        {successMessage && <div className="col-md-8" dangerouslySetInnerHTML={{ __html: successMessage }}></div>}
                         <div className="card-body">
                             <form id="registerUser" onSubmit={registerUser}>
                                 <div className="form-group">
@@ -59,9 +69,9 @@ export const SignUpPage = () => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="passwordHash">Password</label>
-                                    <input type="password" className="form-control" id="passwordHash" placeholder="password"
-                                        value={formData.passwordHash}
+                                    <label htmlFor="password">Password</label>
+                                    <input type="password" className="form-control" id="password" placeholder="password"
+                                        value={formData.password}
                                         onChange={handleFormChange}
                                     />
                                 </div>
@@ -71,6 +81,13 @@ export const SignUpPage = () => {
                                         value={confirmPasswordValue}
                                         onChange={e => setConfirmPasswordValue(e.target.value)}
                                     />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="role">Role: </label>
+                                    <select className="form-select" id="role" value={formData.role} onChange={handleRoleChange}>
+                                        <option value="USER">User</option>
+                                        <option value="ADMIN">Administrator</option>
+                                    </select>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="firstName">First Name</label>
@@ -88,7 +105,7 @@ export const SignUpPage = () => {
                                 </div>
                                 <button className="btn btn-primary btn-block"
                                     type="submit"
-                                    disabled={!formData.email || !formData.passwordHash || formData.passwordHash !== confirmPasswordValue}
+                                    disabled={!formData.email || !formData.password || formData.password !== confirmPasswordValue}
                                 >
                                     Sign Up
                                 </button>

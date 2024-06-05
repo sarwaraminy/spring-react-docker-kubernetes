@@ -1,21 +1,29 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.data.RoleRepository;
+import com.example.demo.data.Role;
 import com.example.demo.data.User;
-import com.example.demo.data.UserRepository;
+import com.example.demo.data.Users_Roles;
+import com.example.demo.repo.RoleRepository;
+import com.example.demo.repo.UserRepository;
+import com.example.demo.repo.UsersRolesRepository;
 
 @Service
 public class UserServiceImpl implements UsersService {
     @Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private UsersRolesRepository usersRolesRepository;
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -38,13 +46,36 @@ public class UserServiceImpl implements UsersService {
 	}
 	
 	@Override
-	public User saveUser(User user) { // insert new records from form int Users table
+	public User saveUser(User user, Long roleId) { // insert new records from form int Users table
+		// Check if email already exists
 		if(userRepository.findByEmail(user.getEmail()).isPresent()){
 			throw new IllegalStateException("Email already exists");
 		}
+
+		// Encode the user's password
 		user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
 
-		return userRepository.save(user);
+		// Fetch and assign the role
+        Optional<Role> roleOptional = roleRepository.findById(roleId);
+        if (roleOptional.isPresent()) {
+            Role role = roleOptional.get();
+            Set<Role> roles = new HashSet<>();
+            roles.add(role);
+            user.setRole(roles);
+        } else {
+            throw new IllegalArgumentException("Invalid role ID");
+        }
+
+		// Save the user to the Users table
+		User savedUser = userRepository.save(user);
+
+		// Create and save the user-role relationship
+		Users_Roles userRole = new Users_Roles();
+		userRole.setUserId(savedUser.getId());
+		userRole.setRoleId(roleId);
+		usersRolesRepository.save(userRole);
+		
+		return savedUser;
 	}
 	
 	@Override

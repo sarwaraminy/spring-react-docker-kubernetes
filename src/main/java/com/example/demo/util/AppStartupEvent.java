@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.data.Room;
-import com.example.demo.data.RoomRepository;
+import com.example.demo.repo.RoomRepository;
 
 @Component
 public class AppStartupEvent implements ApplicationListener<ApplicationReadyEvent> {
