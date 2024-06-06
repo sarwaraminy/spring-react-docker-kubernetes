@@ -24,3 +24,8 @@ RUN npm install
 
 # Command to run the app
 CMD ["npm","start"]
+
+# build an image using docker:
+    # docker image build -t react-client-image:latest .
+# to run an image:
+    # docker run -p 3000:3000 react-client-image:latest
