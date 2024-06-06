@@ -25,10 +25,15 @@ export const LoginPage = () => {
                 const data = await response.json();
                 // Handle successful login (e.g, save token, navigate to dashboard)
                 localStorage.setItem('authToken', data.token);
-                localStorage.setItem('userEmail', emailValue);
-                localStorage.setItem('userRole', JSON.stringify(data.roles));
-                console.log(data);
-                navigate('/rooms/api');
+                //localStorage.setItem('userEmail', emailValue);
+                //localStorage.setItem('userRole', JSON.stringify(data.roles));
+                //console.log(data);
+                navigate('/rooms/api', {
+                    state: {
+                        userEmail: emailValue,
+                        userRole: data.roles
+                    },
+                });
             } else {
                 // Handle error response
                 const errorData = await response.json();

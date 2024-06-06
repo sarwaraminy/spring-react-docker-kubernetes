@@ -3,13 +3,14 @@ import axios from 'axios';
 import AddRoom from './Add_Room';
 import SearchRooms from './SearchRoom';
 import { LogoutButton } from '../auth/LogoutButton';
-import { useUserEmail } from '../auth/useUserEmail';
-import { useUserRole } from '../auth/useUserRole';
+
+import { useLocation } from 'react-router-dom';
 
 const apiServer = process.env.REACT_APP_API_SERVER;
-console.log(apiServer);
 
 const RoomData = () => {
+    const {userEmail, userRole } = useLocation().state || {}
+    console.log("users info: "+userEmail +" role: "+ userRole);
     const [roomList, setRoomList] = useState([]);
     const [filteredRoomList, setFilteredRoomList] = useState([]);
     const [editRoomId, setEditRoomId] = useState(null);
@@ -24,8 +25,7 @@ const RoomData = () => {
 
     const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
 
-    const userRoles = useUserRole();
-    const isUserRoleUser = userRoles.includes('USER');
+    const isUserRoleUser = userRole.includes('USER');
 
     useEffect(() => {
         fetchRoom();
@@ -113,12 +113,10 @@ const RoomData = () => {
         setFilteredRoomList(filteredRooms);
     };
 
-    const email = useUserEmail();
-
     return (
         <>
             <div className="row">
-                <div className="col-md-6">{email && <div>{email}</div> }</div>
+                <div className="col-md-6">{userEmail && <div>{userEmail}</div> }</div>
             </div>
             <LogoutButton />
             <AddRoom fetchRoom={fetchRoom} />
