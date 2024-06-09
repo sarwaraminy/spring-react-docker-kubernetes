@@ -35,7 +35,8 @@ public class RoomServiceTest {
 		//create a room
 		room = new Room();
 		room.setName("Inter Contental");
-		room.setRoomNumber("999");
+		room.setRoomNumber("9T");
+		room.setBedInfo("1T");
 		
 		//save and see what is the return
 		savedRoom = roomService.saveRoom(room);
@@ -44,7 +45,7 @@ public class RoomServiceTest {
 		assertNotNull(savedRoom);
 		assertNotNull(savedRoom.getId());
 		assertEquals("Inter Contental", savedRoom.getName());
-		assertEquals("999", savedRoom.getRoomNumber());
+		assertEquals("9T", savedRoom.getRoomNumber());
 	}
 	
 	//clean the inserted data

@@ -5,16 +5,17 @@ services:
     image: mysql:8
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
-      MYSQL_USER: root
+      MYSQL_USER: samini
       MYSQL_PASSWORD: aaAA11!!
     ports:
-      - "3307:3306"
+      - "6604:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
   backend:
+    container_name: room_backend
     build: 
       context: .
       dockerfile: Dockerfile
@@ -23,11 +24,12 @@ services:
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/test
-      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:6604/test
+      SPRING_DATASOURCE_USERNAME: samini
       SPRING_DATASOURCE_PASSWORD: aaAA11!!
 
   frontend:
+    container_name: room_frontend
     build:
       context: ./client
       dockerfile: Dockerfile

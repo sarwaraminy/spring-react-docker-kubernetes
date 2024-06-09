@@ -30,14 +30,14 @@ public class RoomRepositoryTest {
         // Setup data scenario
         Room aNewRoom1 = new Room();
         aNewRoom1.setName("Gulbahar");
-        aNewRoom1.setRoomNumber("555");
-        aNewRoom1.setBedInfo("Queen size bed");
+        aNewRoom1.setRoomNumber("55");
+        aNewRoom1.setBedInfo("1T");
         roomRepository.save(aNewRoom1);
 
         Room aNewRoom2 = new Room();
         aNewRoom2.setName("Gulbahar");
-        aNewRoom2.setRoomNumber("666");
-        aNewRoom2.setBedInfo("King size bed");
+        aNewRoom2.setRoomNumber("66");
+        aNewRoom2.setBedInfo("1P");
         roomRepository.save(aNewRoom2);
 
         // Find rooms with the same name
@@ -45,11 +45,11 @@ public class RoomRepositoryTest {
 
         // Assertions
         assertNotNull(foundRooms);
-        assertEquals(4, foundRooms.size()); // Ensure all rooms are found
-        assertTrue(foundRooms.stream().anyMatch(room -> room.getRoomNumber().equals("555")));
-        assertTrue(foundRooms.stream().anyMatch(room -> room.getRoomNumber().equals("666")));
-        assertTrue(foundRooms.stream().anyMatch(room -> room.getBedInfo().equals("Queen size bed")));
-        assertTrue(foundRooms.stream().anyMatch(room -> room.getBedInfo().equals("King size bed")));
+        assertEquals(2, foundRooms.size()); // Ensure all rooms are found
+        assertTrue(foundRooms.stream().anyMatch(room -> room.getRoomNumber().equals("55")));
+        assertTrue(foundRooms.stream().anyMatch(room -> room.getRoomNumber().equals("66")));
+        assertTrue(foundRooms.stream().anyMatch(room -> room.getBedInfo().equals("1T")));
+        assertTrue(foundRooms.stream().anyMatch(room -> room.getBedInfo().equals("1P")));
     }
 
 	

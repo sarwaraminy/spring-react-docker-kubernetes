@@ -1,0 +1,67 @@
+2024-06-09T13:43:48.517+04:30  INFO 27352 --- [demo] [main] com.example.demo.DemoApplication         : Starting DemoApplication v0.0.1-SNAPSHOT using Java 22.0.1 with PID 27352 (C:\Users\Sawar Amini\Downloads\demo\spring-react-docker\target\demo-0.0.1-SNAPSHOT.jar started by Sawar Amini in C:\Users\Sawar Amini\Downloads\demo\spring-react-docker)
+2024-06-09T13:43:48.518+04:30  INFO 27352 --- [demo] [main] com.example.demo.DemoApplication         : The following 1 profile is active: "docker"
+2024-06-09T13:43:49.837+04:30  INFO 27352 --- [demo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-09T13:43:49.948+04:30  INFO 27352 --- [demo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 4 JPA repository interfaces.
+2024-06-09T13:43:51.009+04:30  INFO 27352 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-09T13:43:51.025+04:30  INFO 27352 --- [demo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-09T13:43:51.025+04:30  INFO 27352 --- [demo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-06-09T13:43:51.084+04:30  INFO 27352 --- [demo] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-09T13:43:51.084+04:30  INFO 27352 --- [demo] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2453 ms
+2024-06-09T13:43:51.444+04:30  INFO 27352 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-09T13:43:52.093+04:30  INFO 27352 --- [demo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f1f9515
+2024-06-09T13:43:52.097+04:30  INFO 27352 --- [demo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-09T13:43:52.324+04:30  INFO 27352 --- [demo] [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2024-06-09T13:43:52.324+04:30  INFO 27352 --- [demo] [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-06-09T13:43:52.324+04:30  INFO 27352 --- [demo] [main] o.f.c.internal.license.VersionPrinter    : 
+2024-06-09T13:43:52.333+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Scanning for classpath resources at 'classpath:db/callback' ...
+2024-06-09T13:43:52.334+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Determining location urls for classpath:db/callback using ClassLoader org.springframework.boot.loader.launch.LaunchedClassLoader@6193b845 ...
+2024-06-09T13:43:52.334+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Unable to resolve location classpath:db/callback.
+2024-06-09T13:43:52.335+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Scanning for classpath resources at 'classpath:db/migration' ...
+2024-06-09T13:43:52.336+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Determining location urls for classpath:db/migration using ClassLoader org.springframework.boot.loader.launch.LaunchedClassLoader@6193b845 ...
+2024-06-09T13:43:52.339+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Scanning URL: jar:nested:/C:/Users/Sawar%20Amini/Downloads/demo/spring-react-docker/target/demo-0.0.1-SNAPSHOT.jar/!BOOT-INF/classes/!/db/migration
+2024-06-09T13:43:52.346+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Found resource: db/migration/
+2024-06-09T13:43:52.347+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Found resource: db/migration/V1__Initial_setup.sql
+2024-06-09T13:43:52.348+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Found resource: db/migration/V2__Insert_initial_data.sql
+2024-06-09T13:43:52.349+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.classpath.ClassPathScanner     : Scanning for classes at classpath:db/migration
+2024-06-09T13:43:52.357+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/ (filename: )
+2024-06-09T13:43:52.358+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.resource.ResourceNameValidator   : Validating V1__Initial_setup.sql
+2024-06-09T13:43:52.361+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.resource.ResourceNameValidator   : Validating V2__Insert_initial_data.sql
+2024-06-09T13:43:52.439+04:30  INFO 27352 --- [demo] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:6604/test (MySQL 8.4)
+2024-06-09T13:43:52.440+04:30 DEBUG 27352 --- [demo] [main] org.flywaydb.core.FlywayExecutor         : Driver: MySQL Connector/J mysql-connector-java-8.0.28 (Revision: 7ff2161da3899f379fb3171b6538b191b1c5c7e2)
+2024-06-09T13:43:52.441+04:30 DEBUG 27352 --- [demo] [main] org.flywaydb.core.FlywayExecutor         : DDL Transactions Supported: false
+2024-06-09T13:43:52.443+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.SchemaHistoryFactory           : Schemas: 
+2024-06-09T13:43:52.444+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.s.SchemaHistoryFactory           : Default schema: null
+2024-06-09T13:43:52.504+04:30 DEBUG 27352 --- [demo] [main] o.f.database.mysql.MySQLConnection       : Disabled user variable reset as performance_schema.user_variables_by_thread cannot be queried (SQL State: 42000, Error Code: 1142)
+2024-06-09T13:43:52.519+04:30  WARN 27352 --- [demo] [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.0.
+2024-06-09T13:43:52.523+04:30 DEBUG 27352 --- [demo] [main] o.f.c.i.c.SqlScriptCallbackFactory       : Scanning for SQL callbacks ...
+2024-06-09T13:43:52.523+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/ (filename: )
+2024-06-09T13:43:52.552+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.command.DbValidate     : Validating migrations ...
+2024-06-09T13:43:52.560+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/ (filename: )
+2024-06-09T13:43:52.577+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/V1__Initial_setup.sql (filename: V1__Initial_setup.sql)
+2024-06-09T13:43:52.578+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/ (filename: )
+2024-06-09T13:43:52.579+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/V2__Insert_initial_data.sql (filename: V2__Insert_initial_data.sql)
+2024-06-09T13:43:52.580+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/V1__Initial_setup.sql (filename: V1__Initial_setup.sql)
+2024-06-09T13:43:52.582+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/ (filename: )
+2024-06-09T13:43:52.583+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.scanner.Scanner        : Filtering out resource: db/migration/V2__Insert_initial_data.sql (filename: V2__Insert_initial_data.sql)
+2024-06-09T13:43:52.638+04:30  INFO 27352 --- [demo] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.083s)
+2024-06-09T13:43:52.646+04:30 DEBUG 27352 --- [demo] [main] o.f.core.internal.command.DbSchemas      : Skipping creation of existing schema: `test`
+2024-06-09T13:43:52.670+04:30  INFO 27352 --- [demo] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test`: 2
+2024-06-09T13:43:52.676+04:30  INFO 27352 --- [demo] [main] o.f.core.internal.command.DbMigrate      : Schema `test` is up to date. No migration necessary.
+2024-06-09T13:43:52.685+04:30 DEBUG 27352 --- [demo] [main] org.flywaydb.core.FlywayExecutor         : Memory usage: 40 of 68M
+2024-06-09T13:43:52.815+04:30  INFO 27352 --- [demo] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-09T13:43:52.942+04:30  INFO 27352 --- [demo] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-09T13:43:52.999+04:30  INFO 27352 --- [demo] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-09T13:43:53.368+04:30  INFO 27352 --- [demo] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-09T13:43:54.602+04:30  INFO 27352 --- [demo] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-09T13:43:54.602+04:30  INFO 27352 --- [demo] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-09T13:43:55.313+04:30  WARN 27352 --- [demo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-09T13:43:55.781+04:30  WARN 27352 --- [demo] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-06-09T13:43:56.224+04:30  INFO 27352 --- [demo] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-09T13:43:56.351+04:30  INFO 27352 --- [demo] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-09T13:43:56.366+04:30  INFO 27352 --- [demo] [main] com.example.demo.DemoApplication         : Started DemoApplication in 8.687 seconds (process running for 9.479)
+2024-06-09T13:43:59.989+04:30  INFO 27352 --- [demo] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-09T13:43:59.989+04:30  INFO 27352 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-09T13:43:59.989+04:30  INFO 27352 --- [demo] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-06-09T13:46:28.181+04:30  INFO 27352 --- [demo] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-09T13:46:28.185+04:30  INFO 27352 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-09T13:46:28.208+04:30  INFO 27352 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
