@@ -1,8 +1,8 @@
-<b>Enterprise Application with MySQL, Java Spring Boot, and React </b>
+<h1>Enterprise Application with MySQL, Java Spring Boot, and React </h1>
 
 Welcome to our Enterprise Application project! This project demonstrates the integration of MySQL database with Java Spring Boot for the backend and React for the frontend. We've implemented essential functionalities needed for enterprise applications, including CRUD operations, report generation in PDF and Excel formats, sorting, and search capabilities.
 
-<b>Features</b>
+<h2>Features</h2>
 <b>CRUD Operations:</b> Perform Create, Read, Update, and Delete operations on your enterprise data.<br />
 <b>Report Generation:</b> Generate reports in both PDF and Excel formats for easy data analysis.<br />
 <b>Sorting:</b> Sort data by column titles to quickly find the information you need.<br />
@@ -18,20 +18,21 @@ Welcome to our Enterprise Application project! This project demonstrates the int
 <b>Java Spring Boot:</b> A powerful framework for building Java-based enterprise applications, providing features such as dependency injection, RESTful web services, and more.<br />
 <b>React:</b> A JavaScript library for building user interfaces, offering a component-based approach for creating interactive UIs.<br />
 
-<b>Prerequisites</b>
-<ul>Before getting started, ensure you have the following installed:<br />
+<h1>Prerequisites</h1>
+<h3>Before getting started, ensure you have the following installed:</h3>
+<ul>
   <li> Java Development Kit (JDK)</li>
   <li> Node.js and npm</li>
   <li> MySQL Server</li>
   <li> Docker (optional, for containerization)</li>
 </ul><br>
 
-<b>Getting Started</b>
+<h2>Getting Started</h2>
 
-<b>Clone the repository:</b> <br />
-<b>git clone https://github.com/sarwaraminy/sprint-boot-with-react.git</b><br />
+<h2>Clone the repository:</h2> 
+<b>git clone https://github.com/sarwaraminy/sprint-boot-with-react.git</b>
 
-<b>Backend Setup:</b><br />
+<h2>Backend Setup:</h2>
 
 Navigate to the backend directory.<br />
 
@@ -45,7 +46,7 @@ Frontend Setup:<br />
 
 Navigate to the frontend directory.<br />
 
-Install dependencies:<br />
+<h2>Install dependencies:</h2>
 npm install file-server<br />
 npm install axios<br />
 npm install react-router-dom <br />
@@ -54,14 +55,14 @@ npm install<br />
 Start the React development server:<br />
 
 npm start<br />
-Access the Application:<br />
+<h2>Access the Application:</h2>
 
 Open your web browser and visit http://localhost:3000 to access the application.<br /><br />
 
-<b>Contributing</b><br />
+<h2>Contributing</h2>
 We welcome contributions from the community! Feel free to open issues for bug fixes or feature requests, and submit pull requests to contribute code.<br />
 
-<b>Deploy</b>: to deployee you need to do the following:<br />
+<h2>Deploy</h2>: to deployee you need to do the following:<br />
 <ul>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges</li>
 <li>Update your Main application Class DemoApplication.java</li>
