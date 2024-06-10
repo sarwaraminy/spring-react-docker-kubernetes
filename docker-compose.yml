@@ -1,35 +1,24 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql:8
-    container_name: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: test
-      MYSQL_USER: samini
-      MYSQL_PASSWORD: aaAA11!!
-    ports:
-      - "6604:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-
   backend:
-    container_name: room_backend
+    container_name: backend
     build: 
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    restart: on-failure
     depends_on:
-      - mysql
+      - mysql-docker
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:6604/test
-      SPRING_DATASOURCE_USERNAME: samini
-      SPRING_DATASOURCE_PASSWORD: aaAA11!!
+      MYSQL_HOST: localhost
+      MYSQL_URL: jdbc:mysql://localhost:6604/test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: aaAA11!!
 
   frontend:
-    container_name: room_frontend
+    container_name: frontend
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -38,5 +27,16 @@ services:
     depends_on:
       - backend
 
+  mysql-docker:
+    image: mysql:8.4
+    container_name: mysql-docker
+    environment:
+      MYSQL_ROOT_PASSWORD: aaAA11!!
+      MYSQL_DATABASE: test
+    ports:
+      - "6604:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      
 volumes:
   mysql-data:

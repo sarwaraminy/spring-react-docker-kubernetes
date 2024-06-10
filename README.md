@@ -7,10 +7,26 @@ Welcome to our Enterprise Application project! This project demonstrates the int
 <b>Report Generation:</b> Generate reports in both PDF and Excel formats for easy data analysis.<br />
 <b>Sorting:</b> Sort data by column titles to quickly find the information you need.<br />
 <b>Search Ability:</b> Search through your data efficiently with our search functionality.<br />
-<b>User Authentication and Authorization:</b> Secure your application with user authentication and authorization.
-<b>User Registration Page:</b> Allow new users to register with your application.
-<b>User Role:</b> Implement user roles to manage permissions within your application.
-<b>Dockerization:</b> Containerize your application components for easy deployment and scalability.
+<b>User Authentication and Authorization:</b> Secure your application with user authentication and authorization.<br />
+<b>User Registration Page:</b> Allow new users to register with your application.<br />
+<b>User Role:</b> Implement user roles to manage permissions within your application.<br />
+<h4>before running docker-compose build your spring backend to creat *.jar file in target/ folder</h3>
+<ul><li>mvn package -DskipTests=true</li></ul>
+<b>Dockerization:</b> Containerize your application components for easy deployment and scalability.<br />
+<ul>
+  <li>docker-compose build</li>
+  <li>docker-compose up -d</li>
+  <h4>Stop all images</h4>
+  <li>docker-compose stop</li>
+  <h4>Docker command that is removing an image</h4>
+  <li>docker rmi {image-id} --force</li>
+  <h4>Docker command that is removing a container</h4>
+  <li>docker rm {container-id}</li>
+  <h4>To interact with docker mysql container run the following docker command</h4>
+  <li>mysql -h 127.0.0.1 -P 6604 -u root -p</li>
+  <h4>to see the an image information</h4>
+  <li>docker inspect image id</li>
+</ul>
 <b>Flywaydb:</b>  Implement database migration tool that allows you to manage and automate the evolution of your database schema over time.
 
 <b>Technologies Used</b>
