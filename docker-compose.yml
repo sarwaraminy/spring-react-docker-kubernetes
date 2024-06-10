@@ -11,14 +11,14 @@ services:
     restart: always
     networks:
       - react-spring
-      - spring-mysql
+      - spring-mysql  # Ensure this network is defined
     depends_on:
       - mysql-docker
     environment:
-      MYSQL_HOST: localhost
-      MYSQL_URL: jdbc:mysql://localhost:6604/test
-      MYSQL_USER: root
-      MYSQL_PASSWORD: aaAA11!!
+      MYSQL_HOST: mysql-docker
+      # MYSQL_URL: jdbc:mysql://mysql-docker:6604/test
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: aaAA11!!
 
   frontend:
     container_name: frontend
@@ -31,10 +31,6 @@ services:
       - react-spring
     depends_on:
       - backend
-    expose:
-      - 6604
-      - 3306
-      - 33060
 
   mysql-docker:
     image: mysql:8.4
@@ -54,7 +50,8 @@ services:
       start_period: 30s
       
 volumes:
-  mysql-data:
+  mysql-data: {}
+  
 networks:
   react-spring: {}
-  spring-mysql: {}
+  spring-mysql: {}  # Define the network here

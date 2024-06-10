@@ -14,6 +14,7 @@ Welcome to our Enterprise Application project! This project demonstrates the int
 <ul><li>mvn package -DskipTests=true</li></ul>
 <b>Dockerization:</b> Containerize your application components for easy deployment and scalability.<br />
 <ul>
+  <li>docker-compose down</li>
   <li>docker-compose build</li>
   <li>docker-compose up -d</li>
   <h4>Stop all images</h4>
