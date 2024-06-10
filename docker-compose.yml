@@ -8,7 +8,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    restart: on-failure
+    restart: always
+    networks:
+      - react-spring
+      - spring-mysql
     depends_on:
       - mysql-docker
     environment:
@@ -24,8 +27,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - react-spring
     depends_on:
       - backend
+    expose:
+      - 6604
+      - 3306
+      - 33060
 
   mysql-docker:
     image: mysql:8.4
@@ -37,6 +46,15 @@ services:
       - "6604:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 3s
+      retries: 5
+      start_period: 30s
       
 volumes:
   mysql-data:
+networks:
+  react-spring: {}
+  spring-mysql: {}
