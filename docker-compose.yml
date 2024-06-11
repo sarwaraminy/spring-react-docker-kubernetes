@@ -1,22 +1,6 @@
 version: '3.8'
 
 services:
-  mysql-docker:
-    image: mysql:8.4
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: aaAA11!!
-      MYSQL_DATABASE: test
-    ports:
-      - "6604:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
-      interval: 3s
-      retries: 5
-      start_period: 30s
-
   backend:
     container_name: backend
     build: 
@@ -26,21 +10,28 @@ services:
       - "8080:8080"
     restart: on-failure
     networks:
-      - react-spring
-      - spring-mysql  # Ensure this network is defined
+      - spring-mysql  
     depends_on:
-      - mysql-docker
+      - mysqldb
+      
+
+  mysqldb:
+    image: mysql:8.4
+    networks:
+      - spring-mysql
+    restart: unless-stopped
     environment:
-      SPRING_APPLICATION_JSON: >
-        {
-          "spring.datasource.url": "jdbc:mysql://localhost:6604/test",
-          "spring.datasource.username": "root",
-          "spring.datasource.password": "aaAA11!!"
-        }
+      MYSQL_ROOT_PASSWORD: aaAA11!!
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"
     volumes:
-      - .m2:/root/.m2
-    stdin_open: true
-    tty: true
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 3s
+      retries: 5
+      start_period: 30s
 
   frontend:
     container_name: frontend
@@ -49,8 +40,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    networks:
-      - react-spring
     depends_on:
       - backend
       
@@ -58,5 +47,4 @@ volumes:
   mysql-data: {}
   
 networks:
-  react-spring: {}
   spring-mysql: {}  # Define the network here
