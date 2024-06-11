@@ -6,6 +6,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    image: sarwaraminy/spring-react-docker-backend:latest
     ports:
       - "8080:8080"
     restart: on-failure
@@ -38,6 +39,7 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+    image: sarwaraminy/spring-react-docker-frontend:latest
     ports:
       - "3000:3000"
     depends_on:

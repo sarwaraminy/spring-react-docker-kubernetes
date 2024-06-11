@@ -27,7 +27,48 @@ Welcome to our Enterprise Application project! This project demonstrates the int
   <li>mysql -h 127.0.0.1 -P 6604 -u root -p</li>
   <h4>to see the an image information</h4>
   <li>docker inspect image id</li>
+  <h4> Build and push docker hub (https://hub.docker.com/repositories/sarwaraminy)</h4>
+  <li>docker push sarwaraminy/spring-react-docker-backend:latest </li>
 </ul>
+
+<h2>Deploy with Kubernetes</h2>
+<ul>
+  <li>Install Kubernetes from https://kubernetes.io/releases/download/ </li>
+  <li>Install minikube from https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download </li>
+  <h3>Minikube commands</h3>
+  <li>minikube start: to create a new cluster</li>
+  <li>kubectl cluster-inf</li>
+  <h3>Create a namespace using .yml file</h3>
+  <li>kubectl apply -f namespace.yml</li>
+  <h3>show all namespaces</h3>
+  <li>kubectl get ns</li>
+  <h3>Create deployment with .yml file. First you need to deploy MySQL for spring boot</h3>
+  <li>kubectl apply -f mysql-pv-pvc.yml</li>
+  <li>kubectl apply -f mysql-deployment.yml</li>
+  <h3>make sure that the mysql is deployied and running, then deploy your application, run the following commands</h3>
+  <li>kubectl get pods -n development</li>
+  <li>kubectl describe pod mysqldb-xxllxlxlx -n development</li>
+  <li>kubectl apply -f deployment.yml</li>
+  <h3>now check both application are running and intract with kubernetes mysql run the  following command</h3>
+  <li>kubectl run -it --rm --image=mysql:8.4 --restart=Never mysql-client1 -n development -- mysql -h mysqldb -p"aaAA11!!"</li>
+  <h3>Delete a namespace</h3>
+  <li>kubectl delete namespace development</li>
+  <h3>delete a pod</h3>
+  <li>kubectl delete pod podname</li>
+  <h3>Check Pod Logs</h3>
+  <li>kubectl logs pod-info-deployment-754cffbb9b-fktld -n development</li>
+  <h3>Describe the Pod</h3>
+  <li>kubectl describe pod pod-info-deployment-754cffbb9b-fktld -n development</li>
+  <h3>Create a NodePort to access the kubernetes hosts outside</h3>
+  <li>kubectl apply -f pod-info-service.yml</li>
+  <li>kubectl describe svc pod-info-service -n development</li>
+  <h3>to know the ip address of a node run the follwoing command</h3>
+  <li>kubectl get nodes -o wide</li>
+  <h2>Run you application from minikube</h2>
+  <li><b>minikube service pod-info-service -n development</b></li>
+  <h3></h3>
+</ul>
+
 <b>Flywaydb:</b>  Implement database migration tool that allows you to manage and automate the evolution of your database schema over time.
 
 <b>Technologies Used</b>

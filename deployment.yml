@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-info-deployment
+  namespace: development
+  labels:
+    app: pod-info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-info
+  template:
+    metadata:
+      labels:
+        app: pod-info
+    spec:
+      containers:
+        - name: pod-info-container
+          image: sarwaraminy/spring-react-docker-backend:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: MYSQL_HOST
+              value: "mysqldb"
+            - name: MYSQL_PORT
+              value: "3306"
+            - name: MYSQL_DATABASE
+              value: "test"
+            - name: MYSQL_USER
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "aaAA11!!"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "0.5"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
