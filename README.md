@@ -10,6 +10,11 @@ Welcome to our Enterprise Application project! This project demonstrates the int
 <b>User Authentication and Authorization:</b> Secure your application with user authentication and authorization.<br />
 <b>User Registration Page:</b> Allow new users to register with your application.<br />
 <b>User Role:</b> Implement user roles to manage permissions within your application.<br />
+<h4>if you are not want to run you frontend and backend separtly, then follow the following steps:</h4>
+<ul>
+  <li>make sure you are in 'client' directory like */client><b>npm run build</b></li>
+  <li>copy the build folder from 'client' folder and past under <b>*/src/main/resources/static/</b> folder</li>
+</ul>
 <h4>before running docker-compose build your spring backend to creat *.jar file in target/ folder</h3>
 <ul><li>mvn package -DskipTests=true</li></ul>
 <b>Dockerization:</b> Containerize your application components for easy deployment and scalability.<br />
