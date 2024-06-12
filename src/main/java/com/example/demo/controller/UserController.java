@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.FrontEndServer;
 import com.example.demo.data.Role;
 import com.example.demo.data.User;
 import com.example.demo.dto.LoginRequest;
@@ -26,7 +25,7 @@ import com.example.demo.services.UsersService;
 
 @RestController
 @RequestMapping(path="/auth")
-@CrossOrigin(origins = FrontEndServer.FRONT_END_SERVER_ADDRESS)
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired private UsersService userService;

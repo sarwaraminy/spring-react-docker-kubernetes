@@ -18,13 +18,13 @@ spec:
       containers:
         - name: pod-info-container
           image: sarwaraminy/spring-react-docker-backend:latest
-          securityContext:
-            allowPrivilegeEscalation: false
-            runAsNonRoot: true
-            capabilities:
-              drop:
-                - All
-            readOnlyRootFilesystem: true
+#          securityContext:
+#            allowPrivilegeEscalation: false
+#            runAsNonRoot: true
+#            capabilities:
+#              drop:
+#                - All
+#            readOnlyRootFilesystem: true
           ports:
             - containerPort: 8080
           env:

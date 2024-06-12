@@ -27,7 +27,8 @@ Welcome to our Enterprise Application project! This project demonstrates the int
   <li>mysql -h 127.0.0.1 -P 6604 -u root -p</li>
   <h4>to see the an image information</h4>
   <li>docker inspect image id</li>
-  <h4> Build and push docker hub (https://hub.docker.com/repositories/sarwaraminy)</h4>
+  <h4> Build and push docker hub (https://hub.docker.com/repositories/sarwaraminy) and tag you image to automaticly update the kubernetes</h4>
+  <li>docker tag sarwaraminy/spring-react-docker-backend:latest sarwaraminy/spring-react-docker-backend:latest</li>
   <li>docker push sarwaraminy/spring-react-docker-backend:latest </li>
 </ul>
 
