@@ -137,7 +137,7 @@ We welcome contributions from the community! Feel free to open issues for bug fi
 <li>Update your Main application Class DemoApplication.java</li>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges</li>
 <li>Update your Main application Class DemoApplication.java</li>
-<li>run this command in your project: mvn clean package or 'mvn package -DskipTests=true'<li>
+<li>run this command in your project: mvn clean package or 'mvn package -DskipTests=true'</li>
 <li>After running this command, you should find the demo-0.0.1-SNAPSHOT.war file in the target directory.</li>
 </ul>
 
