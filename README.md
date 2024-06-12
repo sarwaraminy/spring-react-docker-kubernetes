@@ -1,4 +1,4 @@
-<h1>Enterprise Application with MySQL, Java Spring Boot, and React </h1>
+<h1>Enterprise Application with MySQL | Java Spring Boot | React | Dockerize | Kubernetes | Minikube</h1>
 
 Welcome to our Enterprise Application project! This project demonstrates the integration of MySQL database with Java Spring Boot for the backend and React for the frontend. We've implemented essential functionalities needed for enterprise applications, including CRUD operations, report generation in PDF and Excel formats, sorting, and search capabilities.
 
@@ -15,7 +15,7 @@ Welcome to our Enterprise Application project! This project demonstrates the int
   <li>make sure you are in 'client' directory like */client><b>npm run build</b></li>
   <li>copy the build folder from 'client' folder and past under <b>*/src/main/resources/static/</b> folder</li>
 </ul>
-<h4>before running docker-compose build your spring backend to creat *.jar file in target/ folder</h3>
+<h4>before running docker-compose build your spring backend to create *.jar file in target/ folder</h3>
 <ul><li>mvn package -DskipTests=true</li></ul>
 <b>Dockerization:</b> Containerize your application components for easy deployment and scalability.<br />
 <ul>
