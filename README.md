@@ -66,7 +66,20 @@ Welcome to our Enterprise Application project! This project demonstrates the int
   <li>kubectl get nodes -o wide</li>
   <h2>Run you application from minikube</h2>
   <li><b>minikube service pod-info-service -n development</b></li>
-  <h3></h3>
+  <h2>Expose your application to the internet with LoadBalancer</h2>
+  <li>kubectl apply -f service.yml</li>
+  <li>kubectl get services -n development</li>
+  <li>minikube tunnel</li>
+  <p>use the external-ip to browse your application in internet</p>
+  <h2>To delete all yml file do the following command</h2>
+  <li>kubectl delete -f your.ymalname.yml for example: kubectl delete -f deployment.yml, but remember you should delete the namespace.yml at end</li>
+  <h2>Delete minikube</h2>
+  <li>minikube delete</li>
+  <hr />
+  <h2>now we will go directly to Kubernetes instead of minikube virtual environment</h2>
+  <p>Cluster - instance of Kubernetes, Control plan, work node</p>
+  <h2>Usefull command of Kubernetes api</h2>
+  <li>kubectl api-resources</li>
 </ul>
 
 <b>Flywaydb:</b>  Implement database migration tool that allows you to manage and automate the evolution of your database schema over time.
