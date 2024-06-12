@@ -131,13 +131,13 @@ Open your web browser and visit http://localhost:3000 to access the application.
 <h2>Contributing</h2>
 We welcome contributions from the community! Feel free to open issues for bug fixes or feature requests, and submit pull requests to contribute code.<br />
 
-<h2>Deploy</h2>: to deployee you need to do the following:<br />
+<h2>Deploy with tomcat:</h2> to deployee you need to do the following:<br />
 <ul>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges</li>
 <li>Update your Main application Class DemoApplication.java</li>
 <li>Update pom.xml and add the tomcat dependency and update build pacakges</li>
 <li>Update your Main application Class DemoApplication.java</li>
-<li>run this command in your project: mvn clean package
+<li>run this command in your project: mvn clean package or 'mvn package -DskipTests=true'<li>
 <li>After running this command, you should find the demo-0.0.1-SNAPSHOT.war file in the target directory.</li>
 </ul>
 
