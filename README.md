@@ -76,8 +76,6 @@ Welcome to our Enterprise Application project! This project demonstrates the int
   <h2>Delete minikube</h2>
   <li>minikube delete</li>
   <hr />
-  <h2>now we will go directly to Kubernetes instead of minikube virtual environment</h2>
-  <p>Cluster - instance of Kubernetes, Control plan, work node</p>
   <h2>Usefull command of Kubernetes api</h2>
   <li>kubectl api-resources</li>
 </ul>
